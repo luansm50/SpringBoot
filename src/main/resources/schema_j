@@ -1,0 +1,52 @@
+CREATE TABLE licitacao
+(
+    id                    BIGINT PRIMARY KEY,
+    perfil_nome           VARCHAR(255),
+    orgao                 VARCHAR(255),
+    favorito              BOOLEAN,
+    objeto                TEXT,
+    data_publicacao       TIMESTAMP,
+    data_final_proposta   TIMESTAMP,
+    url                   TEXT,
+    perfil                INT,
+    unidade_gestora       TEXT,
+    srp                   BOOLEAN,
+    uf                    VARCHAR(2),
+    data_inicial_proposta TIMESTAMP,
+    processo              VARCHAR(50),
+    uasg                  BIGINT,
+    portal                VARCHAR(255),
+    data_captura          TIMESTAMP,
+    modalidade            VARCHAR(255)
+);
+
+CREATE TABLE palavra_encontrada
+(
+    id           BIGINT AUTO_INCREMENT PRIMARY KEY,
+    palavra      VARCHAR(255),
+    licitacao_id BIGINT,
+    FOREIGN KEY (licitacao_id) REFERENCES licitacao (id)
+);
+
+CREATE TABLE item_edital
+(
+    id               BIGINT AUTO_INCREMENT PRIMARY KEY,
+    produto_licitado TEXT,
+    item             INT,
+    lote             VARCHAR(255),
+    diferenciado     VARCHAR(255),
+    unidade          VARCHAR(50),
+    quantidade       INT,
+    decreto7174      BOOLEAN,
+    licitacao_id     BIGINT,
+    FOREIGN KEY (licitacao_id) REFERENCES licitacao (id)
+);
+
+CREATE TABLE anexo
+(
+    id           BIGINT AUTO_INCREMENT PRIMARY KEY,
+    nome         VARCHAR(255),
+    url          TEXT,
+    licitacao_id BIGINT,
+    FOREIGN KEY (licitacao_id) REFERENCES licitacao (id)
+);

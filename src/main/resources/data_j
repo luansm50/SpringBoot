@@ -1,0 +1,26 @@
+-- Inserção de licitações
+INSERT INTO licitacao (id, perfil_nome, orgao, favorito, objeto, data_publicacao, data_final_proposta, url, perfil,
+                       unidade_gestora, srp, uf, data_inicial_proposta, processo, uasg, portal, data_captura,
+                       modalidade)
+VALUES (3972775, 'Perfil Padrão', 'COLEGIO MILITAR DE RECIFE', false,
+        'Pregão Eletrônico - Serviço de processamento de dados para o concurso de admissão ao Colégio Militar do Recife 2023/2024 (TIC)',
+        '2023-06-14 00:00:00', '2023-06-29 09:00:00',
+        'https://www.comprasnet.gov.br/ConsultaLicitacoes/download/download_editais_detalhe.asp?coduasg=160084&modprp=5&numprp=22023&pagina=1&tipo=',
+        1,
+        'MINISTÉRIO DA DEFESA COMANDO DO EXÉRCITO COMANDO MILITAR DO NORDESTE 7ª REGIÃO MILITAR/7ª DIVISÃO DE EXÉRCITO COLEGIO MILITAR DE RECIFE',
+        true, 'PE', '2023-06-14 08:00:00', '22023', 160084, 'ComprasNet', '2023-06-14 06:00:48', 'Registro de Preços');
+
+-- Inserção de palavras encontradas
+INSERT INTO palavra_encontrada (palavra, licitacao_id)
+VALUES ('serviço', 3972775);
+INSERT INTO palavra_encontrada (palavra, licitacao_id)
+VALUES ('serviços', 3972775);
+
+-- Inserção de itens do edital
+INSERT INTO item_edital (produto_licitado, item, lote, diferenciado, unidade, quantidade, decreto7174, licitacao_id)
+VALUES ('Serviços Auxiliares de Tecnologia Informação e Comunicação - Serviços Auxiliares de Tecnologia Informação e Comunicação Serviço de processamento de dados para o concurso de admissão ao Colégio Militar do Recife 2023/2024 (TIC)',
+        1, '', 'Tipo I - Participação Exclusiva de ME/EPP/Equiparada', 'UNIDADE', 8000, true, 3972775);
+
+-- Inserção de anexos
+INSERT INTO anexo (nome, url, licitacao_id)
+VALUES ('Edital', 'https://mdw.minha.effecti.com.br/edital/anexo/1/160084/12/22023', 3972775);
